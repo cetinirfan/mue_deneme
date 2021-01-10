@@ -1,0 +1,55 @@
+<%- include('./src/header'); %> <%- include('./src/headerbar'); %>
+<div id="content" class="main-content">
+  <div class="container">
+    <div class="container">
+      <div class="row layout-top-spacing">
+        <div class="col-lg-12 col-12 layout-spacing">
+          <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+              <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                  <h4>Test Ekle</h4>
+                </div>
+              </div>
+            </div>
+            <form action="/testler/test_ekle/" method="POST">
+              <div class="form-group mb-4">
+                <label for="name">Test Adı</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Test Adı Giriniz..."
+                />
+              </div>
+              <div class="form-group mb-4">
+                <label for="exampleFormControlSelect1">Sınıf Düzeyi</label>
+                <select
+                  name="classStatus"
+                  id="classStatus"
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                >
+                  <option value="Belirtilmedi">Sınıf Düzeyi Seç</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                name="action"
+                class="mt-4 mb-4 btn btn-primary"
+              >
+                OLUŞTUR
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('./src/footer'); %>
+</div>

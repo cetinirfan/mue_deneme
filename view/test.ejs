@@ -1,0 +1,90 @@
+<%- include('./src/header'); %>
+<%- include('./src/headerbar'); %>
+        <div id="content" class="main-content">
+            <div class="container">
+                <div class="container">
+                    <div id="navSection" data-spy="affix" class="nav  sidenav">
+                        <div class="sidenav-content">
+                            <% find_question.forEach(function(question,index){ %>
+                            <a href="#card_<%= index+1 %>" {onclick ? class="active nav-link" }>Soru <%= index+1 %></a>
+                            <% }); %>
+                        </div>
+                    </div>
+                    <form action='/testler/sonuc/<%= find_Id %>' method='POST'>
+                    <% find_question.forEach(function(question,index){ %>
+                    <div class="row">
+                        <div id="card_<%= index+1 %>" class="col-lg-12 layout-spacing layout-top-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Soru <%= index+1 %></h4>
+                                                <div class="task-content">
+                                                    <img class="img-fluid" alt="scrumboard" src=<%= question.questionImage %>>
+                                                </div>
+                                        <div class="col-xl-10 col-lg-9 col-sm-10">
+                                            <div class="n-chk">
+                                                <label class="new-control new-radio new-radio-text radio-classic-primary">
+                                                  <input type="radio" class="new-control-input" id="<%= question.option1 %>" name="<%= index+1 %>" value="<%= question.option1 %>">
+                                                  <span class="new-control-indicator"></span><span class="new-radio-content"><%= question.option1 %></span>
+                                                </label>
+                                            </div>
+                                            <div class="n-chk">
+                                                <label class="new-control new-radio new-radio-text radio-classic-primary">
+                                                  <input type="radio" class="new-control-input" id="<%= question.option2 %>" name="<%= index+1 %>" value="<%= question.option2 %>">
+                                                  <span class="new-control-indicator"></span><span class="new-radio-content"><%= question.option2 %></span>
+                                                </label>
+                                            </div>
+                                            <div class="n-chk">
+                                                <label class="new-control new-radio new-radio-text radio-classic-primary">
+                                                  <input type="radio" class="new-control-input" id="<%= question.option3 %>" name="<%= index+1 %>" value="<%= question.option3 %>">
+                                                  <span class="new-control-indicator"></span><span class="new-radio-content"><%= question.option3 %></span>
+                                                </label>
+                                            </div>
+                                            <div class="n-chk">
+                                                <label class="new-control new-radio new-radio-text radio-classic-primary">
+                                                  <input type="radio" class="new-control-input" id="<%= question.option4 %>" name="<%= index+1 %>" value="<%= question.option4 %>">
+                                                  <span class="new-control-indicator"></span><span class="new-radio-content"><%= question.option4 %></span>
+                                                </label>
+                                            </div>
+                                            <div class="n-chk">
+                                                <label class="new-control new-radio new-radio-text radio-classic-primary">
+                                                  <input type="radio" class="new-control-input" id="<%= question.option5 %>" name="<%= index+1 %>" value="<%= question.option5 %>">
+                                                  <span class="new-control-indicator"></span><span class="new-radio-content"><%= question.option5 %></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                    <button type="submit" class="btn btn-danger mb-2">Testi Bitir</button>
+                </div>
+            </div>
+            <script type="text/javascript">
+                // iterate using Array method for compatibility
+        Array.prototype.forEach.call(document.querySelectorAll('[type=radio]'), function(radio) {
+            radio.addEventListener('click', function(){
+                var self = this;
+                // get all elements with same name but itself and mark them unchecked
+                Array.prototype.filter.call(document.getElementsByName(this.name), function(filterEl) {
+                    return self !== filterEl;
+                }).forEach(function(otherEl) {
+                    delete otherEl.dataset.check
+                })
+        
+                // set state based on previous one
+                if (this.dataset.hasOwnProperty('check')) {
+                    this.checked = false
+                    delete this.dataset.check
+                } else {
+                    this.dataset.check = ''
+                }
+            }, false)
+        })
+            </script>
+           
+<%- include('./src/footer'); %> 

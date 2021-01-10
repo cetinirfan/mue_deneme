@@ -1,0 +1,43 @@
+<%- include('./src/header'); %>
+<%- include('./src/headerbar'); %>
+        <div id="content" class="main-content">
+            <div class="container">
+                <div class="container">
+                    <div class="row layout-top-spacing">
+                        <div class="col-lg-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4><%=find_test.questions.length+1%>. Soru</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <form action='/testler/soru_ekle/<%=find_test._id%>' method='POST' enctype="multipart/form-data">
+                                        <div id="fuSingleFile" class="col-lg-12 layout-spacing">
+                                                    <div class="custom-file-container" data-upload-id="myFirstImage">
+                                                        <label>Fotoğrafı Temizle <a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">x</a></label>
+                                                        <label class="custom-file-container__custom-file" >
+                                                            <input name='image' id="image" type="file" class="custom-file-container__custom-file__custom-file-input" accept="image/*">
+                                                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                                            <span class="custom-file-container__custom-file__custom-file-control"></span>
+                                                        </label>
+                                                        <div class="custom-file-container__image-preview"></div>
+                                                    </div>                
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="correctOption">Doğru Cevap</label>
+                                            <input type="text" name="correctOption" class="form-control" id="correctOption" placeholder="Doğru Cevabı Giriniz...">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="questionSubject">Soru Konu Başlığı</label>
+                                            <input type="text" name="questionSubject" class="form-control" id="questionSubject" placeholder="Konu Başlığı Giriniz...">
+                                        </div>
+                                        <button type="submit" name="action" class="mt-4 mb-4 btn btn-primary">EKLE</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<%- include('./src/footer'); %> 

@@ -1,0 +1,42 @@
+<%- include('./src/header'); %>
+<%- include('./src/headerbar'); %>
+        <div id="content" class="main-content">
+            <div class="container">
+                <div class="container">
+                    <div class="row layout-top-spacing">
+                        <div class="col-lg-12 col-12 layout-spacing">
+                            <div class="statbox widget box box-shadow">
+                                <div class="widget-header">                                
+                                    <div class="row">
+                                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                            <h4>Sınıf Düzenle</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <form action='../../../yonetim/sinif_duzenle/<%=find_sinif._id%>' method='POST'>
+                                        <div class="form-group mb-4">
+                                            <label for="name">Sınıf Adı</label>
+                                            <input type="text" name="name" class="form-control" id="name" value='<%= find_sinif.name%>' placeholder="Sınıf Adı Giriniz...">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="classTeacher">Danışman Öğretmen</label>
+                                            <input type="text" name="classTeacher" class="form-control" id="classTeacher" value='<%= find_sinif.classTeacher%>' placeholder="D.Öğretmen Giriniz...">
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <label for="exampleFormControlSelect1">Sınıf Düzey</label>
+                                            <select name='classType' class="form-control" id="exampleFormControlSelect1">
+                                                <option value='<%= find_sinif.classType%>'><%= find_sinif.classType%></option>
+                                                <option value='12'>12</option>
+                                                <option value='11'>11</option>
+                                                <option value='10'>10</option>
+                                                <option value='9'>9</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" name="action" class="mt-4 mb-4 btn btn-primary">KAYDET</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<%- include('./src/footer'); %> 

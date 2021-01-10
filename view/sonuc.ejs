@@ -1,0 +1,80 @@
+<%- include('./src/header'); %>
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link href="/assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components/cards/card.css" rel="stylesheet" type="text/css" />
+    <link href="/plugins/file-upload/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+<%- include('./src/headerbar'); %>
+
+<div id="content" class="main-content">
+    <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
+                <div class="widget widget-card-two">
+                    <div class="widget-heading">
+                        <h5 class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tarama Testinin Sonuçları</h5>
+                    </div>
+                    <div class="media">
+                    </div>
+                    <div class="widget-content">
+                        <div class="media">
+                            <div class="w-img">
+                                <img src="/assets/img/dogru.png" >
+                            </div>
+                            <div class="media-body">
+                                <h6>Doğru Sayısı - <%=correctQuestion%></h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="w-img">
+                                <img src="/assets/img/yanlis.png" >
+                            </div>
+                            <div class="media-body">
+                                <h6>Yanlış Sayısı - <%=wrongQuestion%></h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="w-img">
+                                <img src="/assets/img/bos.png" >
+                            </div>
+                            <div class="media-body">
+                                <h6>Boş Sayısı - <%=emptyQuestion%></h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="w-img">
+                                <img src="/assets/img/net.png" >
+                            </div>
+                            <div class="media-body">
+                                <h6>Net - <%=netQuestion%></h6>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="w-img">
+                                <img src="/assets/img/yuzde.png" >
+                            </div>
+                            <div class="media-body">
+                                <h6>Yüzdelik Başarı - %<%=percentQuestion%></h6>
+                                <div class="w-summary-stats">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-gradient-secondary" role="progressbar" style="width: <%=percentQuestion%>%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% if(wrongQuestionSubject.length>0){ %>
+                        <div class="widget-heading">
+                            <h6 class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yanlış Yaptığın Konu Başlıkları</h6>
+                        </div>
+                        <% } %>
+                        <% wrongQuestionSubject.forEach(function(subject){ %> 
+                            <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>--> <%=subject%></p>
+                        <% }); %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <!--  END CONTENT AREA  -->
+<%- include('./src/footer'); %>
